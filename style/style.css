@@ -206,27 +206,49 @@ html, body {
 .img5 {
     grid-area: img5;
     
-}.img6 {
+}
+.img6 {
     grid-area: img6;
     
-}.img7 {
+}
+.img7 {
     grid-area: img7;
     
-}.img8 {
+}
+.img8 {
     grid-area: img8;
+}
+label {
+    grid-area: label;
 }
 /*content end*/
 
 /*media*/
+input, label {
+    display: none;
+}
 @media (max-width:992px) {
     .wrapper {
         grid-template-columns: auto;
     }
+    .material-icons, label {
+        display: block;
+    }
+    .content .close {
+        display: none;
+    }
     .sidebar {
         display: none;
     }
+    .nav {
+        background: #eee;
+        display: none;
+    }
+
     .content {
         grid-template-areas: 
+        "label label"
+        "nav nav"
         "img1 img1"
         "img2 img2"
         "img3 img4"
@@ -235,5 +257,14 @@ html, body {
         "img7 img7"
         "img8 img8";
     }
+}
+input:checked~.nav {
+    display: block;
+}
+input:checked+label .menu {
+    display: none;
+}
+input:checked+label .close{
+    display: block;
 }
 /*media end*/
